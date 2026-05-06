@@ -1,7 +1,5 @@
 import flask
-import os
-import sys
-import urllib
+from urllib3 import PoolManager
 import yaml
 
 
@@ -31,7 +29,7 @@ def fetch_website(urllib_version, url):
     # Fetch and print the requested URL
  
     try:
-        http = urllib.PoolManager()
+        http = PoolManager()
         http.request('GET', url)
     except:
         print('Exception')
